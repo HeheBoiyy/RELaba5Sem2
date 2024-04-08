@@ -1,0 +1,45 @@
+﻿<Window x:Class="RELaba5Sem2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RELaba5Sem2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="960
+        ">
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="427" Margin="305,7,0,0" VerticalAlignment="Top" Width="655" 
+                  ItemsSource="{Binding Disciplines}"
+                  SelectedItem="{Binding SelectedItem}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Дисциплина" Width="120">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding TeacherName}" Header="ФИО" Width="100">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Difficulty}" Header="Сложность" Width="Auto">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding ExamDate}" Header="Дата экзамена" Width="Auto">
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding PrepStartDate}" Header="Дата старта подготовки" Width="Auto">
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="NameBut" x:FieldModifier="public" HorizontalAlignment="Left" Margin="21,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="21" />
+        <Label Content="Название дисциплины" HorizontalAlignment="Left" Margin="21,7,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FIOBut" x:FieldModifier="public" HorizontalAlignment="Left" Margin="21,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="21" />
+        <Label Content="Преподаватель" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top"/>
+        <Label Content="Уровень сложности" HorizontalAlignment="Left" Margin="21,111,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата зачёта или экзамена" HorizontalAlignment="Left" Margin="21,164,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Difficulty" x:FieldModifier="public" HorizontalAlignment="Left" Margin="21,137,0,0" VerticalAlignment="Top" Width="238" IsDropDownOpen="True" SelectedIndex="0"
+                 
+                  />
+        <DatePicker x:Name="TimeEx" HorizontalAlignment="Left" Margin="21,195,0,0" VerticalAlignment="Top" Width="238"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Height="30" Margin="81,300,0,0" VerticalAlignment="Top" Width="119"
+                Command="{Binding AddDiscipline}"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Height="30" Margin="81,360,0,0" VerticalAlignment="Top" Width="119"
+                Command="{Binding RemoveDiscipline}"/>
+
+    </Grid>
+</Window>
